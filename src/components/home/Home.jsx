@@ -2,7 +2,7 @@ import AdPage from './AdPage';
 
 function Home() {
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <AdPage />
     </div>
   );
