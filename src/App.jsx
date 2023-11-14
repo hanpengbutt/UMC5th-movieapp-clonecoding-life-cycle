@@ -2,11 +2,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
 import Header from './components/header/Header';
-import MovieContainer from './components/movie/MovieContainer';
-import Home from './components/home/Home';
-import Celebirity from './components/celebirity/Celebirity';
-import Tv from './components/tv/Tv';
-import NotFound from './components/notFound/NotFound';
+import Movie from './pages/Movie';
+import Home from './pages/Home';
+import Celebirity from './pages/Celebirity';
+import Tv from './pages/Tv';
+import NotFound from './pages/NotFound';
+import MovieDetail from './pages/MovieDetail';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Body>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/movie' element={<MovieContainer />} />
+            <Route path='/movie' element={<Movie />} />
+            <Route path='/movie/:title' element={<MovieDetail />} />
             <Route path='/tv' element={<Tv />} />
             <Route path='/celebirity' element={<Celebirity />} />
             <Route path='*' element={<NotFound />} />

@@ -1,20 +1,26 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import MovieItemDetail from './MovieItemDetail';
+import TMDB_IMAGE_BASE_URL from '../../constants/imagePath';
 
 function MovieItem({ title, voteAverage, overview, poster }) {
   const [detail, setDetail] = useState(false);
+  const navigate = useNavigate();
+  const handleClickMovieItem = () => {
+    navigate(`/movie/${title}`, {
+      state: { voteAverage, overview, poster }
+    });
+  };
 
   return (
     <MovieItemWrapper
       onMouseOver={() => setDetail(true)}
       onMouseOut={() => setDetail(false)}
+      onClick={handleClickMovieItem}
     >
-      <ItemPoster
-        src={`https://image.tmdb.org/t/p/original/${poster}`}
-        alt='영화 포스터 사진'
-      />
+      <ItemPoster src={TMDB_IMAGE_BASE_URL(poster)} alt='영화 포스터 사진' />
       <ItemInfo>
         <ItemTitle>{title}</ItemTitle>
         <div>{voteAverage}</div>
