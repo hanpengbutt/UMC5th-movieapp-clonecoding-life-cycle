@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import movies from '../../services/movieDummy';
-import MovieItem from './MovieItem';
+import movies from '../services/movieDummy';
+import MovieItem from '../components/movie/MovieItem';
 
-function MovieContainer() {
+function Movie() {
   return (
-    <MovieContainerWrapper>
+    <MovieContainer>
       {movies.results.map((item, index) => {
         return (
           <MovieItem
@@ -16,11 +16,11 @@ function MovieContainer() {
           />
         );
       })}
-    </MovieContainerWrapper>
+    </MovieContainer>
   );
 }
 
-const MovieContainerWrapper = styled.div`
+const MovieContainer = styled.div`
   width: 90vw;
   display: grid;
   grid-template-rows: repeat(auto, 1fr);
@@ -38,4 +38,4 @@ const MovieContainerWrapper = styled.div`
   }
 `;
 
-export default MovieContainer;
+export default Movie;
